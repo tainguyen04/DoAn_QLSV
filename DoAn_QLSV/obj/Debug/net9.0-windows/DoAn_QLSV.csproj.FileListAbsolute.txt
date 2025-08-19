@@ -145,3 +145,14 @@ T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\Do
 T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\DoAn_QLSV.Forms.frmHocKy.resources
 T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\DoAn_QLSV.Forms.frmDangNhap.resources
 T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\DoAn_QLSV.Forms.frmMonHoc.resources
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\DoAn_QLSV.sourcelink.json
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\BCrypt.Net-Next.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\ClosedXML.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\ClosedXML.Parser.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\DocumentFormat.OpenXml.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\DocumentFormat.OpenXml.Framework.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\ExcelNumberFormat.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\RBush.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\SixLabors.Fonts.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\bin\Debug\net9.0-windows\SlugGenerator.dll
+T:\C sharp\File Project&Homework\DoAn_QLSV\DoAn_QLSV\obj\Debug\net9.0-windows\DoAn_QLSV.Properties.Resources.resources

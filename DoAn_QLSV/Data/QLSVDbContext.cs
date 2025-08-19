@@ -18,28 +18,9 @@ namespace DoAn_QLSV.Data
         public DbSet<TaiKhoan> TaiKhoan { get; set; }
         public DbSet<HocKy> HocKy { get; set; }
         public DbSet<MonHoc> MonHoc { get; set; }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Lop>()
-        //        .HasOne(l => l.Khoa)
-        //        .WithMany(k => k.Lop)
-        //        .HasForeignKey(l => l.maKhoa)
-        //        .OnDelete(DeleteBehavior.Restrict); // hoặc DeleteBehavior.NoAction
-
-        //    modelBuilder.Entity<ThongTinSinhVien>()
-        //        .HasOne(sv => sv.Lop)
-        //        .WithMany(l => l.SinhVien)
-        //        .HasForeignKey(sv => sv.lopID)
-        //        .OnDelete(DeleteBehavior.Cascade); // Hoặc tùy bạn chọn
-        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["QLSVConnection"].ConnectionString);
         }
-        
-
-
-
     }
 }

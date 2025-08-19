@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinSinhVien));
             panel1 = new Panel();
             btnLuu = new Button();
             btnSua = new Button();
@@ -70,7 +69,7 @@
             HinhAnh = new DataGridViewTextBoxColumn();
             toolStrip1 = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
-            toolStripTextBox1 = new ToolStripTextBox();
+            txtTuKhoa = new ToolStripTextBox();
             btnTimKiem = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             btnNhapExcel = new ToolStripButton();
@@ -109,6 +108,7 @@
             btnLuu.TabIndex = 8;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -119,6 +119,7 @@
             btnSua.TabIndex = 7;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnHuyBo
             // 
@@ -129,7 +130,7 @@
             btnHuyBo.TabIndex = 6;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
-            btnHuyBo.Click += button1_Click;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnXoa
             // 
@@ -140,6 +141,7 @@
             btnXoa.TabIndex = 5;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -150,6 +152,7 @@
             btnThem.TabIndex = 4;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btn92399213
             // 
@@ -204,6 +207,7 @@
             cboTenKhoa.Name = "cboTenKhoa";
             cboTenKhoa.Size = new Size(215, 33);
             cboTenKhoa.TabIndex = 61;
+            cboTenKhoa.SelectedIndexChanged += cboTenKhoa_SelectedIndexChanged;
             // 
             // cboTenLop
             // 
@@ -370,6 +374,7 @@
             picHinhAnh.Size = new Size(150, 173);
             picHinhAnh.TabIndex = 37;
             picHinhAnh.TabStop = false;
+            picHinhAnh.Click += picHinhAnh_Click;
             // 
             // panel3
             // 
@@ -396,6 +401,8 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1165, 249);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.DataError += dataGridView1_DataError;
             // 
             // MaSoSinhVien
             // 
@@ -472,7 +479,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripTextBox1, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1165, 34);
@@ -485,18 +492,20 @@
             toolStripLabel1.Size = new Size(88, 29);
             toolStripLabel1.Text = "Tìm kiếm:";
             // 
-            // toolStripTextBox1
+            // txtTuKhoa
             // 
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.Size = new Size(150, 34);
+            txtTuKhoa.Name = "txtTuKhoa";
+            txtTuKhoa.Size = new Size(150, 34);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
             // 
             // btnTimKiem
             // 
-            btnTimKiem.Image = (Image)resources.GetObject("btnTimKiem.Image");
+            btnTimKiem.Image = Properties.Resources.view;
             btnTimKiem.ImageTransparentColor = Color.Magenta;
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(69, 29);
             btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -505,19 +514,21 @@
             // 
             // btnNhapExcel
             // 
-            btnNhapExcel.Image = (Image)resources.GetObject("btnNhapExcel.Image");
+            btnNhapExcel.Image = Properties.Resources.import1;
             btnNhapExcel.ImageTransparentColor = Color.Magenta;
             btnNhapExcel.Name = "btnNhapExcel";
             btnNhapExcel.Size = new Size(126, 29);
             btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.Click += btnNhapExcel_Click;
             // 
             // btnXuatExcel
             // 
-            btnXuatExcel.Image = (Image)resources.GetObject("btnXuatExcel.Image");
+            btnXuatExcel.Image = Properties.Resources.export1;
             btnXuatExcel.ImageTransparentColor = Color.Magenta;
             btnXuatExcel.Name = "btnXuatExcel";
             btnXuatExcel.Size = new Size(119, 29);
             btnXuatExcel.Text = "Xuất Excel";
+            btnXuatExcel.Click += btnXuatExcel_Click;
             // 
             // frmThongTinSinhVien
             // 
@@ -529,6 +540,7 @@
             Controls.Add(panel1);
             Name = "frmThongTinSinhVien";
             Text = "frmThongTinSinhVien";
+            Load += frmThongTinSinhVien_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -587,7 +599,7 @@
         private ComboBox cboTenLop;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
-        private ToolStripTextBox toolStripTextBox1;
+        private ToolStripTextBox txtTuKhoa;
         private ToolStripButton btnTimKiem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton btnNhapExcel;

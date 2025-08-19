@@ -36,7 +36,7 @@
             btnThem = new Button();
             button1 = new Button();
             btn123 = new Button();
-            txtTenKhoa = new TextBox();
+            txtNamHoc = new TextBox();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
             label1 = new Label();
@@ -49,13 +49,19 @@
             MaHocKy = new DataGridViewTextBoxColumn();
             TenHocKy = new DataGridViewTextBoxColumn();
             NamHoc = new DataGridViewTextBoxColumn();
-            diemHocTap = new DataGridViewLinkColumn();
-            diemRenLuyen = new DataGridViewLinkColumn();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            txtTuKhoa = new ToolStripTextBox();
+            btnTimKiem = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btnNhapExcel = new ToolStripButton();
+            btnXuatExcel = new ToolStripButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -83,6 +89,7 @@
             btnLuu.TabIndex = 18;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -93,6 +100,7 @@
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnHuyBo
             // 
@@ -103,6 +111,7 @@
             btnHuyBo.TabIndex = 16;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnXoa
             // 
@@ -113,6 +122,7 @@
             btnXoa.TabIndex = 15;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -123,6 +133,7 @@
             btnThem.TabIndex = 14;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // button1
             // 
@@ -144,12 +155,12 @@
             btn123.Text = "Hủy bỏ";
             btn123.UseVisualStyleBackColor = true;
             // 
-            // txtTenKhoa
+            // txtNamHoc
             // 
-            txtTenKhoa.Location = new Point(163, 105);
-            txtTenKhoa.Name = "txtTenKhoa";
-            txtTenKhoa.Size = new Size(213, 31);
-            txtTenKhoa.TabIndex = 67;
+            txtNamHoc.Location = new Point(163, 105);
+            txtNamHoc.Name = "txtNamHoc";
+            txtNamHoc.Size = new Size(213, 31);
+            txtNamHoc.TabIndex = 67;
             // 
             // panel2
             // 
@@ -162,7 +173,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtTenKhoa);
+            groupBox1.Controls.Add(txtNamHoc);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtTenHocKy);
             groupBox1.Controls.Add(txtMaHocKy);
@@ -223,6 +234,7 @@
             // panel3
             // 
             panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(toolStrip1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 150);
             panel3.Name = "panel3";
@@ -235,15 +247,16 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeight = 58;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { MaHocKy, TenHocKy, NamHoc, diemHocTap, diemRenLuyen });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { MaHocKy, TenHocKy, NamHoc });
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(0, 34);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(890, 308);
+            dataGridView1.Size = new Size(890, 274);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // MaHocKy
             // 
@@ -269,25 +282,59 @@
             NamHoc.Name = "NamHoc";
             NamHoc.ReadOnly = true;
             // 
-            // diemHocTap
+            // toolStrip1
             // 
-            diemHocTap.DataPropertyName = "diemHocTap";
-            diemHocTap.HeaderText = "Điểm học tập";
-            diemHocTap.MinimumWidth = 8;
-            diemHocTap.Name = "diemHocTap";
-            diemHocTap.ReadOnly = true;
-            diemHocTap.Resizable = DataGridViewTriState.True;
-            diemHocTap.SortMode = DataGridViewColumnSortMode.Automatic;
-            diemHocTap.Text = "";
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(890, 34);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
             // 
-            // diemRenLuyen
+            // toolStripLabel1
             // 
-            diemRenLuyen.DataPropertyName = "diemRenLuyen";
-            diemRenLuyen.HeaderText = "Điểm rèn luyện";
-            diemRenLuyen.MinimumWidth = 8;
-            diemRenLuyen.Name = "diemRenLuyen";
-            diemRenLuyen.ReadOnly = true;
-            diemRenLuyen.Text = "";
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(88, 29);
+            toolStripLabel1.Text = "Tìm kiếm:";
+            // 
+            // txtTuKhoa
+            // 
+            txtTuKhoa.Name = "txtTuKhoa";
+            txtTuKhoa.Size = new Size(150, 34);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Image = Properties.Resources.view;
+            btnTimKiem.ImageTransparentColor = Color.Magenta;
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(69, 29);
+            btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 34);
+            // 
+            // btnNhapExcel
+            // 
+            btnNhapExcel.Image = Properties.Resources.import1;
+            btnNhapExcel.ImageTransparentColor = Color.Magenta;
+            btnNhapExcel.Name = "btnNhapExcel";
+            btnNhapExcel.Size = new Size(126, 29);
+            btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.Click += btnNhapExcel_Click;
+            // 
+            // btnXuatExcel
+            // 
+            btnXuatExcel.Image = Properties.Resources.export1;
+            btnXuatExcel.ImageTransparentColor = Color.Magenta;
+            btnXuatExcel.Name = "btnXuatExcel";
+            btnXuatExcel.Size = new Size(119, 29);
+            btnXuatExcel.Text = "Xuất Excel";
+            btnXuatExcel.Click += btnXuatExcel_Click;
             // 
             // frmHocKy
             // 
@@ -299,12 +346,16 @@
             Controls.Add(panel2);
             Name = "frmHocKy";
             Text = "frmHocKy";
+            Load += frmHocKy_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -313,7 +364,7 @@
         private Panel panel1;
         private Button button1;
         private Button btn123;
-        private TextBox txtTenKhoa;
+        private TextBox txtNamHoc;
         private Panel panel2;
         private GroupBox groupBox1;
         private Label label1;
@@ -331,7 +382,12 @@
         private DataGridViewTextBoxColumn MaHocKy;
         private DataGridViewTextBoxColumn TenHocKy;
         private DataGridViewTextBoxColumn NamHoc;
-        private DataGridViewLinkColumn diemHocTap;
-        private DataGridViewLinkColumn diemRenLuyen;
+        private ToolStrip toolStrip1;
+        private ToolStripLabel toolStripLabel1;
+        private ToolStripTextBox txtTuKhoa;
+        private ToolStripButton btnTimKiem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton btnNhapExcel;
+        private ToolStripButton btnXuatExcel;
     }
 }

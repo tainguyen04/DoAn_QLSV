@@ -36,6 +36,7 @@
             label3 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
+            ckbHienMatKhau = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -43,7 +44,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(45, 63);
+            label1.Location = new Point(132, 63);
             label1.Name = "label1";
             label1.Size = new Size(268, 54);
             label1.TabIndex = 0;
@@ -58,7 +59,7 @@
             btnDangNhap.FlatStyle = FlatStyle.Flat;
             btnDangNhap.Font = new Font("Segoe UI", 13F, FontStyle.Bold | FontStyle.Italic);
             btnDangNhap.ForeColor = SystemColors.Control;
-            btnDangNhap.Location = new Point(63, 383);
+            btnDangNhap.Location = new Point(150, 401);
             btnDangNhap.Name = "btnDangNhap";
             btnDangNhap.Size = new Size(232, 59);
             btnDangNhap.TabIndex = 3;
@@ -69,46 +70,46 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             label2.ForeColor = SystemColors.Control;
             label2.Location = new Point(0, 143);
             label2.Name = "label2";
-            label2.Size = new Size(204, 36);
+            label2.Size = new Size(254, 45);
             label2.TabIndex = 4;
             label2.Text = "Tên đăng nhập:";
-            label2.Click += label2_Click;
             // 
             // txtTenDangNhap
             // 
             txtTenDangNhap.BackColor = Color.Teal;
             txtTenDangNhap.BorderStyle = BorderStyle.None;
-            txtTenDangNhap.Font = new Font("Segoe UI", 10F);
+            txtTenDangNhap.Font = new Font("Segoe UI", 16F);
             txtTenDangNhap.ForeColor = SystemColors.Control;
-            txtTenDangNhap.Location = new Point(12, 182);
+            txtTenDangNhap.Location = new Point(12, 193);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(335, 27);
+            txtTenDangNhap.Size = new Size(509, 43);
             txtTenDangNhap.TabIndex = 5;
             // 
             // txtMatKhau
             // 
             txtMatKhau.BackColor = Color.Teal;
             txtMatKhau.BorderStyle = BorderStyle.None;
-            txtMatKhau.Font = new Font("Segoe UI", 10F);
+            txtMatKhau.Font = new Font("Segoe UI", 16F);
             txtMatKhau.ForeColor = SystemColors.Control;
-            txtMatKhau.Location = new Point(12, 290);
+            txtMatKhau.Location = new Point(12, 301);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.PasswordChar = '*';
-            txtMatKhau.Size = new Size(335, 27);
+            txtMatKhau.Size = new Size(509, 43);
             txtMatKhau.TabIndex = 7;
+            txtMatKhau.UseSystemPasswordChar = true;
+            txtMatKhau.KeyDown += txtMatKhau_KeyDown;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
             label3.ForeColor = SystemColors.Control;
             label3.Location = new Point(0, 251);
             label3.Name = "label3";
-            label3.Size = new Size(139, 36);
+            label3.Size = new Size(172, 45);
             label3.TabIndex = 6;
             label3.Text = "Mật khẩu:";
             // 
@@ -116,27 +117,40 @@
             // 
             panel1.BackColor = SystemColors.Desktop;
             panel1.ForeColor = SystemColors.Control;
-            panel1.Location = new Point(12, 316);
+            panel1.Location = new Point(12, 344);
             panel1.Name = "panel1";
-            panel1.Size = new Size(337, 1);
+            panel1.Size = new Size(509, 1);
             panel1.TabIndex = 8;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Desktop;
             panel2.ForeColor = SystemColors.Control;
-            panel2.Location = new Point(13, 208);
+            panel2.Location = new Point(12, 236);
             panel2.Name = "panel2";
-            panel2.Size = new Size(336, 1);
+            panel2.Size = new Size(509, 1);
             panel2.TabIndex = 9;
-            panel2.Paint += panel2_Paint;
+            // 
+            // ckbHienMatKhau
+            // 
+            ckbHienMatKhau.AutoSize = true;
+            ckbHienMatKhau.Font = new Font("Segoe UI", 12F);
+            ckbHienMatKhau.ForeColor = SystemColors.Control;
+            ckbHienMatKhau.Location = new Point(12, 350);
+            ckbHienMatKhau.Name = "ckbHienMatKhau";
+            ckbHienMatKhau.Size = new Size(197, 36);
+            ckbHienMatKhau.TabIndex = 10;
+            ckbHienMatKhau.Text = "Hiện mật khẩu";
+            ckbHienMatKhau.UseVisualStyleBackColor = true;
+            ckbHienMatKhau.CheckedChanged += ckbHienMatKhau_CheckedChanged;
             // 
             // frmDangNhap
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(359, 487);
+            ClientSize = new Size(533, 554);
+            Controls.Add(ckbHienMatKhau);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(txtMatKhau);
@@ -165,5 +179,6 @@
         private Label label3;
         private Panel panel1;
         private Panel panel2;
+        private CheckBox ckbHienMatKhau;
     }
 }

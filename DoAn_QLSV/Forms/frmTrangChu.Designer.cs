@@ -38,6 +38,7 @@
             btnMnuDht = new Button();
             btnMnuSinhVien = new Button();
             panelLogo = new Panel();
+            lblQuyenHan = new Label();
             lblTrangThai = new Label();
             panelMain = new Panel();
             panel2 = new Panel();
@@ -67,6 +68,7 @@
             // 
             // BtnMnuMonHoc
             // 
+            BtnMnuMonHoc.Cursor = Cursors.Hand;
             BtnMnuMonHoc.Dock = DockStyle.Top;
             BtnMnuMonHoc.FlatAppearance.BorderSize = 0;
             BtnMnuMonHoc.FlatStyle = FlatStyle.Flat;
@@ -82,6 +84,7 @@
             // 
             // btnDangXuat
             // 
+            btnDangXuat.Cursor = Cursors.Hand;
             btnDangXuat.Dock = DockStyle.Bottom;
             btnDangXuat.FlatAppearance.BorderSize = 0;
             btnDangXuat.FlatStyle = FlatStyle.Flat;
@@ -97,6 +100,7 @@
             // 
             // btnMnuHocKy
             // 
+            btnMnuHocKy.Cursor = Cursors.Hand;
             btnMnuHocKy.Dock = DockStyle.Top;
             btnMnuHocKy.FlatAppearance.BorderSize = 0;
             btnMnuHocKy.FlatStyle = FlatStyle.Flat;
@@ -112,6 +116,7 @@
             // 
             // btnMnuLop
             // 
+            btnMnuLop.Cursor = Cursors.Hand;
             btnMnuLop.Dock = DockStyle.Top;
             btnMnuLop.FlatAppearance.BorderSize = 0;
             btnMnuLop.FlatStyle = FlatStyle.Flat;
@@ -127,6 +132,7 @@
             // 
             // btnMnuKhoa
             // 
+            btnMnuKhoa.Cursor = Cursors.Hand;
             btnMnuKhoa.Dock = DockStyle.Top;
             btnMnuKhoa.FlatAppearance.BorderSize = 0;
             btnMnuKhoa.FlatStyle = FlatStyle.Flat;
@@ -142,6 +148,7 @@
             // 
             // btnMnuDrl
             // 
+            btnMnuDrl.Cursor = Cursors.Hand;
             btnMnuDrl.Dock = DockStyle.Top;
             btnMnuDrl.FlatAppearance.BorderSize = 0;
             btnMnuDrl.FlatStyle = FlatStyle.Flat;
@@ -157,6 +164,7 @@
             // 
             // btnMnuDht
             // 
+            btnMnuDht.Cursor = Cursors.Hand;
             btnMnuDht.Dock = DockStyle.Top;
             btnMnuDht.FlatAppearance.BorderSize = 0;
             btnMnuDht.FlatStyle = FlatStyle.Flat;
@@ -172,6 +180,7 @@
             // 
             // btnMnuSinhVien
             // 
+            btnMnuSinhVien.Cursor = Cursors.Hand;
             btnMnuSinhVien.Dock = DockStyle.Top;
             btnMnuSinhVien.FlatAppearance.BorderSize = 0;
             btnMnuSinhVien.FlatStyle = FlatStyle.Flat;
@@ -188,12 +197,22 @@
             // panelLogo
             // 
             panelLogo.BackColor = Color.DarkCyan;
+            panelLogo.Controls.Add(lblQuyenHan);
             panelLogo.Controls.Add(lblTrangThai);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
             panelLogo.Size = new Size(300, 100);
             panelLogo.TabIndex = 0;
+            // 
+            // lblQuyenHan
+            // 
+            lblQuyenHan.AutoSize = true;
+            lblQuyenHan.ForeColor = SystemColors.Control;
+            lblQuyenHan.Location = new Point(50, 72);
+            lblQuyenHan.Name = "lblQuyenHan";
+            lblQuyenHan.Size = new Size(0, 25);
+            lblQuyenHan.TabIndex = 1;
             // 
             // lblTrangThai
             // 
@@ -247,6 +266,7 @@
             Name = "frmTrangChu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản lý sinh viên";
+            Load += frmTrangChu_Load;
             panel1.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             panelLogo.PerformLayout();
@@ -271,5 +291,6 @@
         private Label label1;
         private Button BtnMnuMonHoc;
         private Label lblTrangThai;
+        private Label lblQuyenHan;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
             panel1 = new Panel();
             btnLuu = new Button();
             btnSua = new Button();
@@ -36,32 +35,32 @@
             btnXoa = new Button();
             btnThem = new Button();
             panel2 = new Panel();
-            panel3 = new Panel();
             groupBox1 = new GroupBox();
-            txtMaMonHoc = new TextBox();
-            label1 = new Label();
+            numSoTinChi = new NumericUpDown();
+            label3 = new Label();
             txtTenMonHoc = new TextBox();
             label2 = new Label();
-            label3 = new Label();
-            numSoTinChi = new NumericUpDown();
-            toolStrip1 = new ToolStrip();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripTextBox1 = new ToolStripTextBox();
-            btnTimKiem = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            btnNhapExcel = new ToolStripButton();
-            btnXuatExcel = new ToolStripButton();
+            txtMaMonHoc = new TextBox();
+            label1 = new Label();
+            panel3 = new Panel();
             dataGridView1 = new DataGridView();
             maMonHoc = new DataGridViewTextBoxColumn();
             tenMonHoc = new DataGridViewTextBoxColumn();
             soTinChi = new DataGridViewTextBoxColumn();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            txtTuKhoa = new ToolStripTextBox();
+            btnTimKiem = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btnNhapExcel = new ToolStripButton();
+            btnXuatExcel = new ToolStripButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numSoTinChi).BeginInit();
-            toolStrip1.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -86,6 +85,7 @@
             btnLuu.TabIndex = 23;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -96,6 +96,7 @@
             btnSua.TabIndex = 22;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnHuyBo
             // 
@@ -106,6 +107,7 @@
             btnHuyBo.TabIndex = 21;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnXoa
             // 
@@ -116,6 +118,7 @@
             btnXoa.TabIndex = 20;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -126,6 +129,7 @@
             btnThem.TabIndex = 19;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // panel2
             // 
@@ -135,16 +139,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(949, 192);
             panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(toolStrip1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 192);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(949, 303);
-            panel3.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -162,22 +156,25 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin môn học";
             // 
-            // txtMaMonHoc
+            // numSoTinChi
             // 
-            txtMaMonHoc.Location = new Point(146, 30);
-            txtMaMonHoc.Name = "txtMaMonHoc";
-            txtMaMonHoc.Size = new Size(175, 31);
-            txtMaMonHoc.TabIndex = 3;
+            numSoTinChi.Location = new Point(146, 127);
+            numSoTinChi.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numSoTinChi.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numSoTinChi.Name = "numSoTinChi";
+            numSoTinChi.Size = new Size(175, 31);
+            numSoTinChi.TabIndex = 7;
+            numSoTinChi.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // label1
+            // label3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(15, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(126, 28);
-            label1.TabIndex = 2;
-            label1.Text = "Mã môn học:";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.Location = new Point(15, 127);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 28);
+            label3.TabIndex = 6;
+            label3.Text = "Số tín chỉ:";
             // 
             // txtTenMonHoc
             // 
@@ -196,73 +193,32 @@
             label2.TabIndex = 4;
             label2.Text = "Tên môn học:";
             // 
-            // label3
+            // txtMaMonHoc
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(15, 127);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 28);
-            label3.TabIndex = 6;
-            label3.Text = "Số tín chỉ:";
+            txtMaMonHoc.Location = new Point(146, 30);
+            txtMaMonHoc.Name = "txtMaMonHoc";
+            txtMaMonHoc.Size = new Size(175, 31);
+            txtMaMonHoc.TabIndex = 3;
             // 
-            // numSoTinChi
+            // label1
             // 
-            numSoTinChi.Location = new Point(146, 127);
-            numSoTinChi.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-            numSoTinChi.Name = "numSoTinChi";
-            numSoTinChi.Size = new Size(175, 31);
-            numSoTinChi.TabIndex = 7;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.Location = new Point(15, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 28);
+            label1.TabIndex = 2;
+            label1.Text = "Mã môn học:";
             // 
-            // toolStrip1
+            // panel3
             // 
-            toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripTextBox1, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(949, 34);
-            toolStrip1.TabIndex = 2;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(88, 29);
-            toolStripLabel1.Text = "Tìm kiếm:";
-            // 
-            // toolStripTextBox1
-            // 
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.Size = new Size(150, 34);
-            // 
-            // btnTimKiem
-            // 
-            btnTimKiem.Image = (Image)resources.GetObject("btnTimKiem.Image");
-            btnTimKiem.ImageTransparentColor = Color.Magenta;
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(69, 29);
-            btnTimKiem.Text = "Tìm";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 34);
-            // 
-            // btnNhapExcel
-            // 
-            btnNhapExcel.Image = (Image)resources.GetObject("btnNhapExcel.Image");
-            btnNhapExcel.ImageTransparentColor = Color.Magenta;
-            btnNhapExcel.Name = "btnNhapExcel";
-            btnNhapExcel.Size = new Size(126, 29);
-            btnNhapExcel.Text = "Nhập Excel";
-            // 
-            // btnXuatExcel
-            // 
-            btnXuatExcel.Image = (Image)resources.GetObject("btnXuatExcel.Image");
-            btnXuatExcel.ImageTransparentColor = Color.Magenta;
-            btnXuatExcel.Name = "btnXuatExcel";
-            btnXuatExcel.Size = new Size(119, 29);
-            btnXuatExcel.Text = "Xuất Excel";
+            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(toolStrip1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 192);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(949, 303);
+            panel3.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -283,6 +239,7 @@
             // 
             // maMonHoc
             // 
+            maMonHoc.DataPropertyName = "maMonHoc";
             maMonHoc.HeaderText = "Mã môn học";
             maMonHoc.MinimumWidth = 8;
             maMonHoc.Name = "maMonHoc";
@@ -290,6 +247,7 @@
             // 
             // tenMonHoc
             // 
+            tenMonHoc.DataPropertyName = "tenMonHoc";
             tenMonHoc.HeaderText = "Tên môn học";
             tenMonHoc.MinimumWidth = 8;
             tenMonHoc.Name = "tenMonHoc";
@@ -297,10 +255,65 @@
             // 
             // soTinChi
             // 
+            soTinChi.DataPropertyName = "soTinChi";
             soTinChi.HeaderText = "Số tín chỉ";
             soTinChi.MinimumWidth = 8;
             soTinChi.Name = "soTinChi";
             soTinChi.ReadOnly = true;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(949, 34);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(88, 29);
+            toolStripLabel1.Text = "Tìm kiếm:";
+            // 
+            // txtTuKhoa
+            // 
+            txtTuKhoa.Name = "txtTuKhoa";
+            txtTuKhoa.Size = new Size(150, 34);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Image = Properties.Resources.view;
+            btnTimKiem.ImageTransparentColor = Color.Magenta;
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(69, 29);
+            btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 34);
+            // 
+            // btnNhapExcel
+            // 
+            btnNhapExcel.Image = Properties.Resources.import1;
+            btnNhapExcel.ImageTransparentColor = Color.Magenta;
+            btnNhapExcel.Name = "btnNhapExcel";
+            btnNhapExcel.Size = new Size(126, 29);
+            btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.Click += btnNhapExcel_Click;
+            // 
+            // btnXuatExcel
+            // 
+            btnXuatExcel.Image = Properties.Resources.export1;
+            btnXuatExcel.ImageTransparentColor = Color.Magenta;
+            btnXuatExcel.Name = "btnXuatExcel";
+            btnXuatExcel.Size = new Size(119, 29);
+            btnXuatExcel.Text = "Xuất Excel";
+            btnXuatExcel.Click += btnXuatExcel_Click;
             // 
             // frmMonHoc
             // 
@@ -312,16 +325,17 @@
             Controls.Add(panel1);
             Name = "frmMonHoc";
             Text = "frmMonHoc";
+            Load += frmMonHoc_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numSoTinChi).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -343,15 +357,15 @@
         private NumericUpDown numSoTinChi;
         private Label label3;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn maMonHoc;
-        private DataGridViewTextBoxColumn tenMonHoc;
-        private DataGridViewTextBoxColumn soTinChi;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
-        private ToolStripTextBox toolStripTextBox1;
+        private ToolStripTextBox txtTuKhoa;
         private ToolStripButton btnTimKiem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton btnNhapExcel;
         private ToolStripButton btnXuatExcel;
+        private DataGridViewTextBoxColumn maMonHoc;
+        private DataGridViewTextBoxColumn tenMonHoc;
+        private DataGridViewTextBoxColumn soTinChi;
     }
 }

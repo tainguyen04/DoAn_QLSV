@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn_QLSV.Data;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace DoAn_QLSV.Forms
 {
     public partial class frmTrangChu : Form
     {
+        QLSVDbContext context = new QLSVDbContext();
         frmDiemHocTap frmDiemHocTap = null!;
         frmThongTinSinhVien frmThongTin = null!;
         frmDiemRenLuyen frmDiemRenLuyen = null!;
@@ -19,25 +22,41 @@ namespace DoAn_QLSV.Forms
         frmLop frmLop = null!;
         frmHocKy frmHocKy = null!;
         frmMonHoc frmMonHoc = null!;
-        public frmTrangChu()
+        frmDangNhap frmDangNhap = null!;
+        string maso;
+        string pq;
+        public frmTrangChu(string mssv, string phanQuyen)
         {
             InitializeComponent();
+            maso = mssv;
+            pq = phanQuyen;
         }
-
+        public void PhanQuyen()
+        {
+            if (pq == "user")
+            {
+                BtnMnuMonHoc.Enabled = false;
+                btnMnuHocKy.Enabled = false;
+                btnMnuKhoa.Enabled = false;
+                btnMnuLop.Enabled = false;
+            }
+        }
         private void btnMnuDht_Click(object sender, EventArgs e)
         {
-            if (frmDiemHocTap == null || frmDiemHocTap.IsDisposed)
-            {
-                frmDiemHocTap = new frmDiemHocTap();
-                frmDiemHocTap.TopLevel = false; // Form con không có thanh tiêu đề
-                frmDiemHocTap.FormBorderStyle = FormBorderStyle.None; // Không có viền
-                frmDiemHocTap.Dock = DockStyle.Fill; // Lấp đầy panel
+            
+                if (frmDiemHocTap == null || frmDiemHocTap.IsDisposed)
+                {
+                    frmDiemHocTap = new frmDiemHocTap();
+                    frmDiemHocTap.TopLevel = false; // Form con không có thanh tiêu đề
+                    frmDiemHocTap.FormBorderStyle = FormBorderStyle.None; // Không có viền
+                    frmDiemHocTap.Dock = DockStyle.Fill; // Lấp đầy panel
 
 
-            }
-            panelMain.Controls.Clear(); // Xóa control cũ nếu có
-            panelMain.Controls.Add(frmDiemHocTap); // Thêm form vào panel
-            frmDiemHocTap.Show();
+                }
+                panelMain.Controls.Clear(); // Xóa control cũ nếu có
+                panelMain.Controls.Add(frmDiemHocTap); // Thêm form vào panel
+                frmDiemHocTap.Show();
+            
         }
 
         private void btnMnuSinhVien_Click(object sender, EventArgs e)
@@ -145,6 +164,16 @@ namespace DoAn_QLSV.Forms
             panelMain.Controls.Clear(); // Xóa control cũ nếu có
             panelMain.Controls.Add(frmMonHoc); // Thêm form vào panel
             frmMonHoc.Show();
+        }
+
+        private void frmTrangChu_Load(object sender, EventArgs e)
+        {
+
+            var sv = context.ThongTinSinhVien.SingleOrDefault(r => r.MSSV == maso);
+            if (sv != null)
+                lblTrangThai.Text = "Xin chào, " + sv.hoTen;
+                lblQuyenHan.Text = "Quyền hạn: " + pq;
+            PhanQuyen();
         }
     }
 }

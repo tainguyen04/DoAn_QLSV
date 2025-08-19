@@ -1,0 +1,5 @@
+tendangnhap
+	admin
+	user
+matkhau
+	123456

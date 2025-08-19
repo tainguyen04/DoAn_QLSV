@@ -46,11 +46,19 @@
             dataGridView1 = new DataGridView();
             MaKhoa = new DataGridViewTextBoxColumn();
             TenKhoa = new DataGridViewTextBoxColumn();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            txtTuKhoa = new ToolStripTextBox();
+            btnTimKiem = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btnNhapExcel = new ToolStripButton();
+            btnXuatExcel = new ToolStripButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -78,6 +86,7 @@
             btnLuu.TabIndex = 13;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -88,6 +97,7 @@
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnHuyBo
             // 
@@ -98,6 +108,7 @@
             btnHuyBo.TabIndex = 11;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnXoa
             // 
@@ -108,6 +119,7 @@
             btnXoa.TabIndex = 10;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -118,6 +130,7 @@
             btnThem.TabIndex = 9;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // button1
             // 
@@ -200,6 +213,7 @@
             // panel3
             // 
             panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(toolStrip1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 135);
             panel3.Name = "panel3";
@@ -214,12 +228,12 @@
             dataGridView1.ColumnHeadersHeight = 58;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { MaKhoa, TenKhoa });
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(0, 34);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1065, 360);
+            dataGridView1.Size = new Size(1065, 326);
             dataGridView1.TabIndex = 0;
             // 
             // MaKhoa
@@ -238,6 +252,60 @@
             TenKhoa.Name = "TenKhoa";
             TenKhoa.ReadOnly = true;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1065, 34);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(88, 29);
+            toolStripLabel1.Text = "Tìm kiếm:";
+            // 
+            // txtTuKhoa
+            // 
+            txtTuKhoa.Name = "txtTuKhoa";
+            txtTuKhoa.Size = new Size(150, 34);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Image = Properties.Resources.view;
+            btnTimKiem.ImageTransparentColor = Color.Magenta;
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(69, 29);
+            btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 34);
+            // 
+            // btnNhapExcel
+            // 
+            btnNhapExcel.Image = Properties.Resources.import1;
+            btnNhapExcel.ImageTransparentColor = Color.Magenta;
+            btnNhapExcel.Name = "btnNhapExcel";
+            btnNhapExcel.Size = new Size(126, 29);
+            btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.Click += btnNhapExcel_Click;
+            // 
+            // btnXuatExcel
+            // 
+            btnXuatExcel.Image = Properties.Resources.export1;
+            btnXuatExcel.ImageTransparentColor = Color.Magenta;
+            btnXuatExcel.Name = "btnXuatExcel";
+            btnXuatExcel.Size = new Size(119, 29);
+            btnXuatExcel.Text = "Xuất Excel";
+            btnXuatExcel.Click += btnXuatExcel_Click;
+            // 
             // frmKhoa
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -248,12 +316,16 @@
             Controls.Add(panel1);
             Name = "frmKhoa";
             Text = "frmKhoa";
+            Load += frmKhoa_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -277,5 +349,12 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn MaKhoa;
         private DataGridViewTextBoxColumn TenKhoa;
+        private ToolStrip toolStrip1;
+        private ToolStripLabel toolStripLabel1;
+        private ToolStripTextBox txtTuKhoa;
+        private ToolStripButton btnTimKiem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton btnNhapExcel;
+        private ToolStripButton btnXuatExcel;
     }
 }

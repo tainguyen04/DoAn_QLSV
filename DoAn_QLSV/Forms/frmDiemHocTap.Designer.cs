@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiemHocTap));
             panel1 = new Panel();
             btnLuu = new Button();
             btnXoa = new Button();
@@ -37,11 +36,15 @@
             btnHuyBo = new Button();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
+            cboXepLoai = new ComboBox();
+            label3 = new Label();
+            cboMonHoc = new ComboBox();
+            numDiemHe4 = new NumericUpDown();
+            numDiemHocTap = new NumericUpDown();
+            label2 = new Label();
             cboMaSoSinhVien = new ComboBox();
             cboHocKy = new ComboBox();
-            txtDrl = new TextBox();
-            txtDht = new TextBox();
-            cboXepLoai = new ComboBox();
+            cboNamHoc = new ComboBox();
             label5 = new Label();
             label1 = new Label();
             label4 = new Label();
@@ -51,26 +54,27 @@
             label7 = new Label();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
-            toolStrip1 = new ToolStrip();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripTextBox1 = new ToolStripTextBox();
-            btnTimKiem = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            btnNhapExcel = new ToolStripButton();
-            btnXuatExcel = new ToolStripButton();
-            txtMonHoc = new TextBox();
-            label2 = new Label();
             Id = new DataGridViewTextBoxColumn();
             MaSoSinhVien = new DataGridViewTextBoxColumn();
             HoTen = new DataGridViewTextBoxColumn();
             tenHocKy = new DataGridViewTextBoxColumn();
+            namHoc = new DataGridViewTextBoxColumn();
             tenMonHoc = new DataGridViewTextBoxColumn();
             DiemHocTap = new DataGridViewTextBoxColumn();
             DiemHe4 = new DataGridViewTextBoxColumn();
             xepLoaiHocTap = new DataGridViewTextBoxColumn();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            txtTuKhoa = new ToolStripTextBox();
+            btnTimKiem = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btnNhapExcel = new ToolStripButton();
+            btnXuatExcel = new ToolStripButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numDiemHe4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numDiemHocTap).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             toolStrip1.SuspendLayout();
@@ -100,6 +104,7 @@
             btnLuu.TabIndex = 13;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnXoa
             // 
@@ -110,6 +115,7 @@
             btnXoa.TabIndex = 10;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -120,6 +126,7 @@
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -130,6 +137,7 @@
             btnThem.TabIndex = 9;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnHuyBo
             // 
@@ -140,6 +148,7 @@
             btnHuyBo.TabIndex = 11;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // panel2
             // 
@@ -152,13 +161,15 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtMonHoc);
+            groupBox1.Controls.Add(cboXepLoai);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(cboMonHoc);
+            groupBox1.Controls.Add(numDiemHe4);
+            groupBox1.Controls.Add(numDiemHocTap);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(cboMaSoSinhVien);
             groupBox1.Controls.Add(cboHocKy);
-            groupBox1.Controls.Add(txtDrl);
-            groupBox1.Controls.Add(txtDht);
-            groupBox1.Controls.Add(cboXepLoai);
+            groupBox1.Controls.Add(cboNamHoc);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label4);
@@ -174,6 +185,61 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin điểm học tập";
             // 
+            // cboXepLoai
+            // 
+            cboXepLoai.FormattingEnabled = true;
+            cboXepLoai.Items.AddRange(new object[] { "Yếu", "Trung bình", "Khá", "Giỏi" });
+            cboXepLoai.Location = new Point(567, 149);
+            cboXepLoai.Name = "cboXepLoai";
+            cboXepLoai.Size = new Size(230, 33);
+            cboXepLoai.TabIndex = 48;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.Location = new Point(428, 149);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 28);
+            label3.TabIndex = 47;
+            label3.Text = "Xếp loại:";
+            // 
+            // cboMonHoc
+            // 
+            cboMonHoc.FormattingEnabled = true;
+            cboMonHoc.Location = new Point(567, 22);
+            cboMonHoc.Name = "cboMonHoc";
+            cboMonHoc.Size = new Size(230, 33);
+            cboMonHoc.TabIndex = 46;
+            // 
+            // numDiemHe4
+            // 
+            numDiemHe4.DecimalPlaces = 1;
+            numDiemHe4.Location = new Point(567, 112);
+            numDiemHe4.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numDiemHe4.Name = "numDiemHe4";
+            numDiemHe4.Size = new Size(230, 31);
+            numDiemHe4.TabIndex = 45;
+            // 
+            // numDiemHocTap
+            // 
+            numDiemHocTap.DecimalPlaces = 1;
+            numDiemHocTap.Location = new Point(567, 67);
+            numDiemHocTap.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numDiemHocTap.Name = "numDiemHocTap";
+            numDiemHocTap.Size = new Size(230, 31);
+            numDiemHocTap.TabIndex = 44;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.Location = new Point(428, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(94, 28);
+            label2.TabIndex = 42;
+            label2.Text = "Môn học:";
+            // 
             // cboMaSoSinhVien
             // 
             cboMaSoSinhVien.FormattingEnabled = true;
@@ -181,6 +247,7 @@
             cboMaSoSinhVien.Name = "cboMaSoSinhVien";
             cboMaSoSinhVien.Size = new Size(230, 33);
             cboMaSoSinhVien.TabIndex = 41;
+            cboMaSoSinhVien.SelectedIndexChanged += cboMaSoSinhVien_SelectedIndexChanged;
             // 
             // cboHocKy
             // 
@@ -190,27 +257,14 @@
             cboHocKy.Size = new Size(230, 33);
             cboHocKy.TabIndex = 40;
             // 
-            // txtDrl
+            // cboNamHoc
             // 
-            txtDrl.Location = new Point(567, 105);
-            txtDrl.Name = "txtDrl";
-            txtDrl.Size = new Size(230, 31);
-            txtDrl.TabIndex = 39;
-            // 
-            // txtDht
-            // 
-            txtDht.Location = new Point(567, 63);
-            txtDht.Name = "txtDht";
-            txtDht.Size = new Size(230, 31);
-            txtDht.TabIndex = 38;
-            // 
-            // cboXepLoai
-            // 
-            cboXepLoai.FormattingEnabled = true;
-            cboXepLoai.Location = new Point(168, 146);
-            cboXepLoai.Name = "cboXepLoai";
-            cboXepLoai.Size = new Size(230, 33);
-            cboXepLoai.TabIndex = 37;
+            cboNamHoc.FormattingEnabled = true;
+            cboNamHoc.Location = new Point(168, 146);
+            cboNamHoc.Name = "cboNamHoc";
+            cboNamHoc.Size = new Size(230, 33);
+            cboNamHoc.TabIndex = 37;
+            cboNamHoc.SelectedIndexChanged += cboNamHoc_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -248,9 +302,9 @@
             label8.Font = new Font("Segoe UI", 10F);
             label8.Location = new Point(12, 146);
             label8.Name = "label8";
-            label8.Size = new Size(87, 28);
+            label8.Size = new Size(95, 28);
             label8.TabIndex = 31;
-            label8.Text = "Xếp loại:";
+            label8.Text = "Năm học:";
             // 
             // txtHoTen
             // 
@@ -296,7 +350,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, MaSoSinhVien, HoTen, tenHocKy, tenMonHoc, DiemHocTap, DiemHe4, xepLoaiHocTap });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, MaSoSinhVien, HoTen, tenHocKy, namHoc, tenMonHoc, DiemHocTap, DiemHe4, xepLoaiHocTap });
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 34);
             dataGridView1.MultiSelect = false;
@@ -306,73 +360,6 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1067, 257);
             dataGridView1.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripTextBox1, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1067, 34);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(88, 29);
-            toolStripLabel1.Text = "Tìm kiếm:";
-            // 
-            // toolStripTextBox1
-            // 
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.Size = new Size(150, 34);
-            // 
-            // btnTimKiem
-            // 
-            btnTimKiem.Image = (Image)resources.GetObject("btnTimKiem.Image");
-            btnTimKiem.ImageTransparentColor = Color.Magenta;
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(69, 29);
-            btnTimKiem.Text = "Tìm";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 34);
-            // 
-            // btnNhapExcel
-            // 
-            btnNhapExcel.Image = (Image)resources.GetObject("btnNhapExcel.Image");
-            btnNhapExcel.ImageTransparentColor = Color.Magenta;
-            btnNhapExcel.Name = "btnNhapExcel";
-            btnNhapExcel.Size = new Size(126, 29);
-            btnNhapExcel.Text = "Nhập Excel";
-            // 
-            // btnXuatExcel
-            // 
-            btnXuatExcel.Image = (Image)resources.GetObject("btnXuatExcel.Image");
-            btnXuatExcel.ImageTransparentColor = Color.Magenta;
-            btnXuatExcel.Name = "btnXuatExcel";
-            btnXuatExcel.Size = new Size(119, 29);
-            btnXuatExcel.Text = "Xuất Excel";
-            // 
-            // txtMonHoc
-            // 
-            txtMonHoc.Location = new Point(567, 24);
-            txtMonHoc.Name = "txtMonHoc";
-            txtMonHoc.Size = new Size(230, 31);
-            txtMonHoc.TabIndex = 43;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(428, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(94, 28);
-            label2.TabIndex = 42;
-            label2.Text = "Môn học:";
             // 
             // Id
             // 
@@ -406,6 +393,14 @@
             tenHocKy.Name = "tenHocKy";
             tenHocKy.ReadOnly = true;
             // 
+            // namHoc
+            // 
+            namHoc.DataPropertyName = "namHoc";
+            namHoc.HeaderText = "Năm học";
+            namHoc.MinimumWidth = 8;
+            namHoc.Name = "namHoc";
+            namHoc.ReadOnly = true;
+            // 
             // tenMonHoc
             // 
             tenMonHoc.DataPropertyName = "tenMonHoc";
@@ -438,6 +433,60 @@
             xepLoaiHocTap.Name = "xepLoaiHocTap";
             xepLoaiHocTap.ReadOnly = true;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, txtTuKhoa, btnTimKiem, toolStripSeparator1, btnNhapExcel, btnXuatExcel });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1067, 34);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(88, 29);
+            toolStripLabel1.Text = "Tìm kiếm:";
+            // 
+            // txtTuKhoa
+            // 
+            txtTuKhoa.Name = "txtTuKhoa";
+            txtTuKhoa.Size = new Size(150, 34);
+            txtTuKhoa.KeyDown += txtTuKhoa_KeyDown;
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Image = Properties.Resources.view;
+            btnTimKiem.ImageTransparentColor = Color.Magenta;
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(69, 29);
+            btnTimKiem.Text = "Tìm";
+            btnTimKiem.Click += btnTimKiem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 34);
+            // 
+            // btnNhapExcel
+            // 
+            btnNhapExcel.Image = Properties.Resources.import1;
+            btnNhapExcel.ImageTransparentColor = Color.Magenta;
+            btnNhapExcel.Name = "btnNhapExcel";
+            btnNhapExcel.Size = new Size(126, 29);
+            btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.Click += btnNhapExcel_Click;
+            // 
+            // btnXuatExcel
+            // 
+            btnXuatExcel.Image = Properties.Resources.export1;
+            btnXuatExcel.ImageTransparentColor = Color.Magenta;
+            btnXuatExcel.Name = "btnXuatExcel";
+            btnXuatExcel.Size = new Size(119, 29);
+            btnXuatExcel.Text = "Xuất Excel";
+            btnXuatExcel.Click += btnXuatExcel_Click;
+            // 
             // frmDiemHocTap
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -448,10 +497,13 @@
             Controls.Add(panel1);
             Name = "frmDiemHocTap";
             Text = "Điểm học tập";
+            Load += frmDiemHocTap_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numDiemHe4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numDiemHocTap).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -479,24 +531,27 @@
         private TextBox txtHoTen;
         private Label label6;
         private Label label7;
-        private ComboBox cboXepLoai;
-        private TextBox txtDrl;
-        private TextBox txtDht;
+        private ComboBox cboNamHoc;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
-        private ToolStripTextBox toolStripTextBox1;
+        private ToolStripTextBox txtTuKhoa;
         private ToolStripButton btnTimKiem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton btnNhapExcel;
         private ToolStripButton btnXuatExcel;
         private ComboBox cboMaSoSinhVien;
         private ComboBox cboHocKy;
-        private TextBox txtMonHoc;
         private Label label2;
+        private NumericUpDown numDiemHe4;
+        private NumericUpDown numDiemHocTap;
+        private ComboBox cboMonHoc;
+        private ComboBox cboXepLoai;
+        private Label label3;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn MaSoSinhVien;
         private DataGridViewTextBoxColumn HoTen;
         private DataGridViewTextBoxColumn tenHocKy;
+        private DataGridViewTextBoxColumn namHoc;
         private DataGridViewTextBoxColumn tenMonHoc;
         private DataGridViewTextBoxColumn DiemHocTap;
         private DataGridViewTextBoxColumn DiemHe4;
